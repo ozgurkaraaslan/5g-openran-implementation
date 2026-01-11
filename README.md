@@ -19,7 +19,10 @@ First, build the main Docker image and start the container in **Privileged** mod
 sudo docker build -t e2sim-dind .
 
 # Run the container and enter the shell
-sudo docker run --privileged -it e2sim-dind bash
+sudo docker run --privileged -it e2sim-dind
+
+sudo docker exec -it <container_id> /bin/bash
+
 
 Once inside the container, start the Docker Daemon manually:
 # Start Docker daemon in the background
@@ -39,7 +42,8 @@ In this terminal, we set up the RIC platform and monitor the E2 Termination poin
 ### Clone the RIC repository
 
 ```bash
-git clone -b ns-o-ran [https://github.com/wineslab/colosseum-near-rt-ric](https://github.com/wineslab/colosseum-near-rt-ric)
+cd ../..
+git clone -b ns-o-ran https://github.com/wineslab/colosseum-near-rt-ric
 ```
 
 ### Run setup scripts
@@ -84,9 +88,9 @@ Finally, compile and run the ns-3 simulation to start sending data to the RIC.
 cd /workspace
 
 # Clone ns-3 and the O-RAN interface module
-git clone [https://github.com/wineslab/ns-o-ran-ns3-mmwave.git](https://github.com/wineslab/ns-o-ran-ns3-mmwave.git) ns-3-mmwave-oran
+git clone https://github.com/wineslab/ns-o-ran-ns3-mmwave.git ns-3-mmwave-oran
 cd ns-3-mmwave-oran/contrib 
-git clone -b master [https://github.com/o-ran-sc/sim-ns3-o-ran-e2](https://github.com/o-ran-sc/sim-ns3-o-ran-e2) oran-interface
+git clone -b master https://github.com/o-ran-sc/sim-ns3-o-ran-e2 oran-interface
 
 # Configure and Build
 cd ../
