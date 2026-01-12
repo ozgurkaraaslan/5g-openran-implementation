@@ -32,7 +32,7 @@ RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.g
 RUN apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # Copy the e2sim source code into the container
-COPY ./e2sim /workspace/e2sim
+COPY ./o-ran-e2sim/e2sim /workspace/e2sim
 
 # Set up build directory and work there
 RUN mkdir -p /workspace/e2sim/build
